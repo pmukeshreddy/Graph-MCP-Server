@@ -1,16 +1,16 @@
 # Code Graph MCP Server
 
-**An MCP server that gives Claude actual code intelligence - not vibes.**
+**An MCP server that gives LLMs actual code intelligence.**
 
 ## What This Does
 
-When you ask Claude to modify code, it usually guesses what else might break. This server builds a **real dependency graph** from your codebase so Claude knows *exactly* what depends on what.
+When you ask an LLM to modify code, it usually guesses what else might break. This server builds a **real dependency graph** from your codebase so your AI assistant knows *exactly* what depends on what.
 
 ```
 You: "Add timeout to APIRouter"
 
 Without this server:          With this server:
-Claude guesses → 🎲           Claude queries graph → gets real data
+LLM guesses → 🎲              LLM queries graph → gets real data
                               • 12 functions call APIRouter
                               • 3 files will need updates  
                               • Here's the actual code that breaks
@@ -141,10 +141,21 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 2. Configure for Cursor
+### 2. Configure MCP Client
 
-Add to your MCP config (`.cursor/mcp.json` or settings):
+**Cursor** (`.cursor/mcp.json`):
+```json
+{
+  "mcpServers": {
+    "code-graph": {
+      "command": "/path/to/venv/bin/python",
+      "args": ["/path/to/graph-mcp-server/mcp_server.py"]
+    }
+  }
+}
+```
 
+**Claude Desktop** (`~/Library/Application Support/Claude/claude_desktop_config.json` on Mac):
 ```json
 {
   "mcpServers": {
