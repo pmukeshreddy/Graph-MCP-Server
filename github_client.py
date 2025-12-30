@@ -1,4 +1,5 @@
 """GitHub API Client - Thin wrapper around GitHub REST API."""
+
 import os
 import aiohttp
 from typing import Any, Dict, List, Optional
