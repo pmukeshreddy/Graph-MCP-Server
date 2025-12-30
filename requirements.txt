@@ -1,0 +1,21 @@
+# MCP Server
+fastmcp>=0.1.0
+
+# Claude API
+anthropic>=0.40.0
+
+# GitHub API
+aiohttp>=3.9.0
+
+# Graph Analysis
+tree-sitter>=0.23.0
+tree-sitter-python>=0.23.0
+networkx>=3.2
+
+# Rule Matching
+sentence-transformers>=2.2.0
+numpy>=1.24.0
+
+# Dev
+python-dotenv>=1.0.0
+rich>=13.0.0
