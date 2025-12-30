@@ -1,4 +1,4 @@
-# Code Graph MCP Server
+# Graph MCP Server
 
 **An MCP server that gives LLMs actual code intelligence.**
 
